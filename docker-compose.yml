@@ -1,0 +1,11 @@
+﻿version: '3'
+services:
+  performind:
+    image: python:3.9
+    container_name: performind_app
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "8501:8501"
+    command: bash -c "pip install -r requirements.txt && streamlit run app.py --server.port=8501 --server.address=0.0.0.0"
